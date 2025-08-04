@@ -21,7 +21,8 @@ router.get ('/:id', (req, res) => {
 
 //update
 router.put('/:id', (req,res) => {
-    res.send(`modifica TOTALE del post ${id}`)
+   const id = req.params.id
+   res.send(`modifica TOTALE del post ${id}`)
 
 
 })
