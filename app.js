@@ -18,11 +18,11 @@ app.use(express.static ('public'));
 const postRouters = require('./routers/postsRoutes')
 //utilizo il file routers per definire le ruote dei posts
 
-app.use('./posts', postRouters)
+app.use('/posts', postRouters)
 
 //definisco la rotta entry point della nostra app
 app.get('/', (req, res)=> {
-    rest.send('server del mio blog');
+    res.send('server del mio blog');
 });
 
 //dico alla mia app di restare in ascolto sulla porta 3000 definita sopra 

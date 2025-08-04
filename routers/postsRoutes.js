@@ -9,7 +9,7 @@ const router = express.Router()
  })
 
 // show
-router.get ('/:id', (req, re) => {
+router.get ('/:id', (req, res) => {
    const id = req.params.id
     res.send(`Dettagli del post ${id}`)
 })
@@ -26,7 +26,7 @@ router.put('/:id', (req,res) => {
 
 })
 //modify
-router.patch('./:id', (req,res)=>{
+router.patch('/:id', (req,res)=>{
   const id = req.params.id
   res.send (`modifica PARZIALE del post ${id}`)
 
