@@ -1,4 +1,4 @@
-const { post } = require("../routers/postsRoutes");
+//const { post } = require("../routers/postsRoutes.js");
 
 const posts =[
     
@@ -35,4 +35,4 @@ const posts =[
 ];
 
 
-mopdule.exports=post
+module.exports=posts

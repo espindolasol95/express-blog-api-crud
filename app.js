@@ -15,7 +15,7 @@ app.use(express.static ('public'));
 
 
 //Importi il router delle rotte /posts
-const postRouters = require('./routers/postsRoutes')
+const postRouters = require('./routers/postsRoutes.js')
 //utilizo il file routers per definire le ruote dei posts
 
 app.use('/posts', postRouters)

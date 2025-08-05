@@ -2,11 +2,11 @@
 const express = require('express')
 const router = express.Router()
 //importare il controller
-const postsController = require('../controllers/controllerPosts')
+const postsController = require('../controllers/postsControllers')
 // index
  router.get('/', postsController.index)
 // show
-router.get ('/:id', postsController.show)
+ router.get ('/:id', postsController.show)
 //create 
  router.post('/',postsController.create)
 //update
