@@ -1,43 +1,20 @@
 //creazione delle rotte (CRUD)
 const express = require('express')
 const router = express.Router()
-
+//importare il controller
+const postsController = require('../controllers/controllerPosts')
 // index
- router.get('/', (req, res) => {
-    res.send('lista dei post')
-
- })
-
+ router.get('/', postsController.index)
 // show
-router.get ('/:id', (req, res) => {
-   const id = req.params.id
-    res.send(`Dettagli del post ${id}`)
-})
-
+router.get ('/:id', postsController.show)
 //create 
- router.post('/',(req,res) => {
-    res.send('creazione di un nuovo post')
- })
-
+ router.post('/',postsController.create)
 //update
-router.put('/:id', (req,res) => {
-   const id = req.params.id
-   res.send(`modifica TOTALE del post ${id}`)
-
-
-})
+router.put('/:id',postsController.update)
 //modify
-router.patch('/:id', (req,res)=>{
-  const id = req.params.id
-  res.send (`modifica PARZIALE del post ${id}`)
-
-})
-
-//delete
- router.delete('/:id',(req,res) => {
-    const id = req.params.id
-    res.send(`Cancellazione del post ${id}`)
- })
+ router.patch('/:id', postsController.modify)
+//destroy
+ router.delete('/:id',postsController.destroy)
 
  module.exports = router
  
