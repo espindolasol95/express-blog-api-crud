@@ -1,3 +1,5 @@
+const { post } = require("../routers/postsRoutes");
+
 const posts =[
     
     {   id: 1,
@@ -16,7 +18,7 @@ const posts =[
         titolo:'Boba fet',
         contenuto:'lorem ipsum dolor',
         immagine:'img/s-l1200.jpg',
-        tags:['cacciatore, abilità']
+        tags:['cacciatore', 'abilità']
     },
     {   id: 4,
         titolo:'Elmo',
@@ -28,8 +30,9 @@ const posts =[
         titolo:'Messi',
         contenuto:'lorem ipsum dolor',
         immagine:'img/Leo-messi-PNG.png',
-        tags:['forza, talento, umiltà']
+        tags:['forza', 'talento', 'umiltà']
     }
 ];
 
 
+mopdule.exports=post

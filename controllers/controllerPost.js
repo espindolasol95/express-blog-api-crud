@@ -2,19 +2,24 @@
 
 
 //importo l'array dalla cartella data
-let posts = require ('../data/posts')  //verrà usato nella millestone 2 
+let posts = require('../data/postdata')  //verrà usato nella millestone 2 
 
 //INDEX: restituisce la lista di tutti i post
 exports.index = (req, res) => {
-    res.send('lista dei post')
+    res.json(posts);
     // In futuro cercher il post con quell'id e lo restituirò in JSON
 }
 //SHOW: restituisce i detagli di un singolo post
 exports.show = (req, res) => {
     const id = req.params.id
-    res.send(`Dettagli del post ${id}`)
-     // In futuro cercher il post con quell'id e lo restituirò in JSON
+    const post = posts.find (p =>p.id===id)
+    if (post) {
+    res.json(post);
+  } else {
+    res.status(404).json({ message: 'Post non trovato' });
+  }
 }
+
 //CREATE: crea un nuovo post
 exports.create = (req, res) => {
   res.send('creazione di un nuovo post');
@@ -36,6 +41,14 @@ exports.modify = (req, res) => {
 //DESTROY: cancella un post
 exports.destroy = (req, res) => {
   const id = req.params.id;
-  res.send(`Cancellazione del post ${id}`)
+  const index = posts.findIndex (p => p.id ===id)
+   if (index !== -1) {
+    posts.splice(index, 1);
+    console.log(posts);
+    res.status(204).send();
+  } else {
+    res.status(404).json({ message: 'Post non trovato' });
+  }
+
 }
 
