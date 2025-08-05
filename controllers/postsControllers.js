@@ -31,7 +31,26 @@ exports.show = (req, res) => {
 
 //CREATE: crea un nuovo post
 exports.create = (req, res) => {
-  res.send('creazione di un nuovo post')
+  
+ console.log("Dati ricevuti dal client:", req.body)
+ const { titolo, contenuto, immagine, tags } = req.body
+ const newId = posts.length + 1;
+ //nuovo oggetto da salvare
+ const newPost = {
+    id: newId,
+    titolo,
+    contenuto,
+    immagine,
+    tags
+  }
+   posts.push(newPost)
+   console.log(newPost)
+   res.status(201).json(newPost)
+
+  
+
+
+
   
 }
 
@@ -57,7 +76,7 @@ exports.destroy = (req, res) => {
     posts.splice(posts.indexOf(posts), 1);
 
     console.log(posts);
-    
+
     res.status(204).send();
   } else {
     res.status(404).json({ message: 'Post non trovato' });
