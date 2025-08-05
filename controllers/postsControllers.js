@@ -20,11 +20,13 @@ if (tag){
 exports.show = (req, res) => {
     const id = parseInt(req.params.id)
     const post = posts.find (p => p.id === id)
-    if (post) {
-    res.json(post);
-  } else {
+
+    if (!post) {
     return res.status(404).json({ message: 'Post non trovato' });
+    
   }
+  res.json(post)
+
 }
 
 //CREATE: crea un nuovo post
@@ -49,10 +51,13 @@ exports.modify = (req, res) => {
 //DESTROY: cancella un post
 exports.destroy = (req, res) => {
   const id = parseInt(req.params.id)
-  const index = posts.findIndex (p => p.id ===id)
+
+  const index = posts.findIndex (p => p.id === id)
    if (index !== -1) {
     posts.splice(posts.indexOf(posts), 1);
+
     console.log(posts);
+    
     res.status(204).send();
   } else {
     res.status(404).json({ message: 'Post non trovato' });

@@ -8,7 +8,8 @@ const app = express();
 //definisco la porta
 const port= 3000;
 
-app.use(express.json());
+// Per leggere i body in formato JSON
+app.use(express.json()); 
 
 //inserisco il mildware per  i file statici
 app.use(express.static ('public'));
