@@ -50,7 +50,14 @@ exports.create = (req, res) => {
 //UPDATE:modifica totale
 exports.update = (req, res) => {
   const id = req.params.id;
-  res.send(`modifica TOTALE del post ${id}`)
+  const { titolo, contenuto, immagine, tags } = req.body
+  //recupero il post con l'id passato come parametro
+  const post = post.find(item => item.id === id)
+   post.titolo = titolo
+   post.contenuto = contenuto
+   post.immagine = immagine
+   post.tags = tags 
+  res.send(posts)
 }
 
 //MODIFY:modifica parziale, modifica solo alcuni campi del post
