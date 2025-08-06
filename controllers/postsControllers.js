@@ -29,12 +29,11 @@ exports.show = (req, res) => {
 
 }
 
-//CREATE: crea un nuovo post
+//STORE: crea un nuovo post
 exports.create = (req, res) => {
-  
- console.log("Dati ricevuti dal client:", req.body)
+   const newId = [posts.length -1 ].id+1
  const { titolo, contenuto, immagine, tags } = req.body
- const newId = posts.length + 1;
+
  //nuovo oggetto da salvare
  const newPost = {
     id: newId,
@@ -44,14 +43,8 @@ exports.create = (req, res) => {
     tags
   }
    posts.push(newPost)
-   console.log(newPost)
    res.status(201).json(newPost)
 
-  
-
-
-
-  
 }
 
 //UPDATE:modifica totale
