@@ -32,7 +32,7 @@ exports.show = (req, res) => {
 //STORE: crea un nuovo post
 exports.create = (req, res) => {
    const newId = [posts.length -1 ].id+1
- const { titolo, contenuto, imagine, tags } = req.body
+ const { titolo, contenuto, immagine, tags } = req.body
 
  //nuovo oggetto da salvare
  const newPost = {
@@ -50,12 +50,12 @@ exports.create = (req, res) => {
 //UPDATE:modifica totale
 exports.update = (req, res) => {
   const id = req.params.id;
-  const { titolo, contenuto, imagine, tags } = req.body
+  const { titolo, contenuto, immagine, tags } = req.body
   //recupero il post con l'id passato come parametro
   const post = post.find(item => item.id === id)
    post.titolo = titolo
    post.contenuto = contenuto
-   post.immagine = imagine
+   post.immagine = immagine
    post.tags = tags 
   res.send(posts)
 }
